@@ -1,7 +1,9 @@
 package com.jimzhang;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 /**
  * @className : Solution
@@ -95,5 +97,62 @@ public class Solution {
     }
 
 
+    /**
+     * 242. 有效的字母异位词
+     * a 在ASCII 中是97，减去 a 就是从数组第一个下标位开始
+     * @param s
+     * @param t
+     * @return
+     */
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        int[] alpha = new int[26];
+        for (int i=0; i<s.length(); i++) {
+            alpha[s.charAt(i) - 'a'] ++;
+            alpha[t.charAt(i) - 'a'] --;
+        }
 
+        // Arrays.stream(alpha).allMatch(x->x==0);
+        for (int i=0; i<26; i++) {
+            if (alpha[i] !=0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    private HashMap<Character,Character> mapping;
+
+    public Solution() {
+        this.mapping = new HashMap<>();
+        mapping.put(')','(');
+        mapping.put('}','{');
+        mapping.put(']','[');
+    }
+
+    /**
+     * 有效括号：使用栈
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(n)
+     * @param s
+     * @return
+     */
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (int i=0; i<s.length(); i++) {
+            char c = s.charAt(i);
+            if (mapping.containsKey(c)) {
+                char topElement = stack.isEmpty() ? '#' : stack.pop();
+                if (topElement != this.mapping.get(c)) {
+                    return false;
+                }
+            }else {
+                stack.push(c);
+            }
+        }
+        return stack.isEmpty();
+    }
 }
