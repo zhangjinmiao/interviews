@@ -6,15 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="java-basic" />
         <module name="leetcode-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="java-basic" target="1.8" />
       <module name="leetcode-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="java-basic" options="-parameters" />
       <module name="leetcode-demo" options="-parameters" />
     </option>
   </component>
