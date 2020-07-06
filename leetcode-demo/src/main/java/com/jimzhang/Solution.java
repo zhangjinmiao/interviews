@@ -11,6 +11,8 @@ import java.util.*;
 public class Solution {
 
     /**
+     * tag：数组
+     *
      * 两数之和
      *
      * 给定 nums = [2, 7, 11, 15], target = 9
@@ -41,6 +43,8 @@ public class Solution {
 
 
     /**
+     * tag：数组
+     *
      * 三数之和：数组遍历
      * 首先对数组进行排序，排序后固定一个数 nums[i]，再使用左右指针指向 nums[i]后面的两端，数字分别为 nums[L] 和 nums[R]，计算三个数的和 sum 判断是否满足为 0，满足则添加进结果集
      * 如果 nums[i]大于 0，则三数之和必然无法等于 0，结束循环
@@ -107,9 +111,36 @@ public class Solution {
         int val;
         ListNode next;
         ListNode(int x) { val = x; }
+
+        public ListNode(int[] nums) {
+            if (nums == null || nums.length == 0) {
+                throw new IllegalArgumentException("arr can not be empty");
+            }
+            this.val = nums[0];
+            ListNode cur = this;
+            for (int i=1; i<nums.length; i++){
+                cur.next = new ListNode(nums[i]);
+                cur = cur.next;
+            }
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+            ListNode cur = this;
+            while (cur != null) {
+                sb.append(cur.val);
+                sb.append("->");
+                cur =cur.next;
+            }
+            sb.append("NULL");
+            return sb.toString();
+        }
     }
 
     /**
+     * tag：链表
+     *
      * 两数相加
      *
      * 输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
@@ -203,6 +234,7 @@ public class Solution {
     }
 
     /**
+     * tag：栈
      * 有效括号：使用栈
      * 时间复杂度：O(n)
      * 空间复杂度：O(n)
@@ -226,4 +258,51 @@ public class Solution {
     }
 
 
+    /**
+     * tag：链表
+     *
+     * 反转单链表：迭代
+     *
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(1)
+     * @param head
+     * @return
+     */
+    public ListNode reverseList(ListNode head) {
+        // 定义节点
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur != null) {
+            ListNode nextTemp = cur.next; // 临时暂存下一节点
+            // 相邻节点互换
+            cur.next = pre;
+            pre = cur;
+            cur = nextTemp;// 后移
+        }
+        return pre;
+    }
+
+    /**
+     * tag：链表
+     *
+     * 两两交换链表中的节点：递归
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(n)
+     *
+     * @param head
+     * @return
+     */
+    public ListNode swapPairs(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode p1 = head;
+        ListNode p2 = head.next;
+        ListNode newHead = swapPairs(p2.next);
+        p2.next = p1;
+        p1.next = newHead;
+        return p2;
+    }
+
+    
 }
