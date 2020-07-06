@@ -12,6 +12,9 @@ public class UserEntity {
 
   private String userName;
 
+  public UserEntity() {
+  }
+
   public String getUserId() {
     return userId;
   }

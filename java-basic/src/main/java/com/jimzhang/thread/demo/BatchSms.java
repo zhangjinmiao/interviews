@@ -9,7 +9,7 @@ import java.util.List;
  * @author zhangjinmiao
  * @create 2019/8/27 16:23
  */
-public class BatshSms {
+public class BatchSms {
 
   public static void main(String[] args) {
     // 1.初始化用户数据
