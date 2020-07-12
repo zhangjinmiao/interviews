@@ -22,6 +22,7 @@ public class ThreadDemo02 {
     // 主线程让子线程先执行完毕的话，怎么做？
     try {
       thread.join();
+//      thread.join(2000); // 可以先让子线程执行2秒后主线程再执行
     } catch (Exception e) {
       // TODO: handle exception
     }
