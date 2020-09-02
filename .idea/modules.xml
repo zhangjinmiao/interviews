@@ -4,6 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/interviews.iml" filepath="$PROJECT_DIR$/.idea/interviews.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-basic/java-basic.iml" filepath="$PROJECT_DIR$/java-basic/java-basic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-collections/java-collections.iml" filepath="$PROJECT_DIR$/java-collections/java-collections.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-concurrency/java-concurrency.iml" filepath="$PROJECT_DIR$/java-concurrency/java-concurrency.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-core/java-core.iml" filepath="$PROJECT_DIR$/java-core/java-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-jvm/java-jvm.iml" filepath="$PROJECT_DIR$/java-jvm/java-jvm.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcode-demo/leetcode-demo.iml" filepath="$PROJECT_DIR$/leetcode-demo/leetcode-demo.iml" />
     </modules>
   </component>

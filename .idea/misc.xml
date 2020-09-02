@@ -8,6 +8,10 @@
       <list>
         <option value="$PROJECT_DIR$/leetcode-demo/pom.xml" />
         <option value="$PROJECT_DIR$/java-basic/pom.xml" />
+        <option value="$PROJECT_DIR$/java-collections/pom.xml" />
+        <option value="$PROJECT_DIR$/java-concurrency/pom.xml" />
+        <option value="$PROJECT_DIR$/java-core/pom.xml" />
+        <option value="$PROJECT_DIR$/java-jvm/pom.xml" />
       </list>
     </option>
   </component>

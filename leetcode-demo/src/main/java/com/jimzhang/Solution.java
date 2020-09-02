@@ -1,7 +1,5 @@
 package com.jimzhang;
 
-import com.jimzhang.tree.BinaryTreeDemo;
-
 import java.util.*;
 
 /**
@@ -14,8 +12,8 @@ public class Solution {
 
     /**
      * tag：数组
-     *
-     * 两数之和
+     * 题号：001
+     * 两数之和：
      *
      * 给定 nums = [2, 7, 11, 15], target = 9
      * 因为 nums[0] + nums[1] = 2 + 7 = 9
@@ -46,7 +44,7 @@ public class Solution {
 
     /**
      * tag：数组
-     *
+     * 题号：015
      * 三数之和：数组遍历，sort && find 两边往中间夹
      * 首先对数组进行排序，排序后固定一个数 nums[i]，再使用左右指针指向 nums[i]后面的两端，数字分别为 nums[L] 和 nums[R]，计算三个数的和 sum 判断是否满足为 0，满足则添加进结果集
      * 如果 nums[i]大于 0，则三数之和必然无法等于 0，结束循环
@@ -143,8 +141,8 @@ public class Solution {
 
     /**
      * tag：链表
-     *
-     * 两数相加
+     * 题号：012
+     * 两数相加：
      *
      * 输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
      * 输出：7 -> 0 -> 8
@@ -189,7 +187,9 @@ public class Solution {
 
 
     /**
-     * 242. 有效的字母异位词：数组
+     * tag：数组
+     * 题号：242
+     * 效的字母异位词：
      * a 在ASCII 中是97，减去 a 就是从数组第一个下标位开始
      *
      * 思路：
@@ -199,10 +199,7 @@ public class Solution {
      * s 负责在对应位置增加，t 负责在对应位置减少
      * 如果哈希表的值都为 0，则二者是字母异位词
      *
-     * 作者：guanpengchn
      * 链接：https://leetcode-cn.com/problems/valid-anagram/solution/hua-jie-suan-fa-242-you-xiao-de-zi-mu-yi-wei-ci-by/
-     * 来源：力扣（LeetCode）
-     * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
      * @param s
      * @param t
      * @return
@@ -238,6 +235,7 @@ public class Solution {
 
     /**
      * tag：栈
+     * 题号：020
      * 有效括号：使用栈
      * 时间复杂度：O(n)
      * 空间复杂度：O(n)
@@ -263,7 +261,7 @@ public class Solution {
 
     /**
      * tag：链表
-     *
+     * 题号：206
      * 反转单链表：迭代
      *
      * 时间复杂度：O(n)
@@ -287,7 +285,7 @@ public class Solution {
 
     /**
      * tag：链表
-     *
+     * 题号：024
      * 两两交换链表中的节点：递归
      * 时间复杂度：O(n)
      * 空间复杂度：O(n)
@@ -307,29 +305,48 @@ public class Solution {
         return p2;
     }
 
-    public static class TreeNode {
+    public class TreeNode {
         int val;
-        BinaryTreeDemo.TreeNode left;
-        BinaryTreeDemo.TreeNode right;
+        TreeNode left;
+        TreeNode right;
         TreeNode(int x) { val = x; }
     }
 
+    long pre = Long.MIN_VALUE;
     /**
      * 验证二叉搜索树：
+     * 题号：098
+     * 利用中序遍历：左->中->➡右
+     * 进行一次中序遍历，将遍历结果保存，然后判断该数组是否是从小到大排列的即可
+     *
      *
      * 二叉搜索树:
      *  1.节点的左子树只包含小于当前节点的数
      *  2.节点的右子树只包含大于当前节点的数
      *  3.所有左子树和右子树自身必须也是二叉搜索树
-     * 时间复杂度：O()
-     * 空间复杂度：O()
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(1)
      *
      * @param root
      * @return
      */
     public boolean isValidBST(TreeNode root) {
-
-        return true;
+        if (root == null) {
+            return true;
+        }
+        // 访问左子树
+        if (!isValidBST(root.left)) {
+            return false;
+        }
+        // 访问当前节点，如果当前节点 <= 前一个节点，则返回 false
+        if (root.val <= pre) {
+            return false;
+        }
+        pre = root.val;
+        // 访问右子树
+        return isValidBST(root.right);
     }
+
+
 
 }
